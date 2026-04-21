@@ -1,0 +1,2 @@
+a = "Python"
+print(a)

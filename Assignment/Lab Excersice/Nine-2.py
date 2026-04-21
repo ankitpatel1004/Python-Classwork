@@ -1,0 +1,12 @@
+string = "Tops Technologies Surat"
+print(len(string))
+print(string.lower())
+print(string.casefold())
+print(string.upper())
+print(string.capitalize())
+print(string.title())
+print(string.split(" "))
+print("Surat".center(10,'#'))
+print("Surat12".isalpha())
+print("123".isdigit())
+print("Surat1$".isalnum())
