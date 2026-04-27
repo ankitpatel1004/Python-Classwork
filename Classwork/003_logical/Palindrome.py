@@ -7,6 +7,6 @@ while number != 0:
     number=number//10
 
 if temp==sum:
-    print("Pelindrom")
+    print("Palindrome number")
 else:
-    print("Not pelidrom")
+    print("Not palindrome number")

@@ -1,5 +1,6 @@
-# octal to decimal
-number = 1101
+# Octal to decimal
+
+number = 233
 p = 0
 sum = 0
 while number != 0:

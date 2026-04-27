@@ -4,7 +4,7 @@
 # 1234
 # 12345
 
-lines=5
+# lines=5
 # for j in range(lines):
 #     for i in range(j+1):
 #         print(i+1,end="")
@@ -29,7 +29,7 @@ lines=5
 # 78910
 # 1112131415
 
-# lines=5
+lines=5
 # n=1
 # for j in range(lines):
 #     for i in range(j+1):
@@ -56,9 +56,8 @@ lines=5
 # 01010
 
 lines=5
-
 for j in range(lines):
     for i in range(j+1):
         print((i+j)%2,end="")
     print()
-    
+

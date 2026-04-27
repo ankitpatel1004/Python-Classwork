@@ -5,7 +5,7 @@
 # print(l[0])
 # print(len(l))
 
-# #access list item
+# access list item
 # l = [10,20,30,40,50,60]
 # print(l[2])
 # print(l[1:5])
@@ -15,16 +15,16 @@
 
 # change list
 # l = [10,20,30,40,50,60]
-# l[0] = 100
+# l[2] = 100
 # print(l)
 # l.insert(3,300)
 # print(l)
 # l.append(300)
 # print(l)
-# # in list remove 2 and 3 value and insert new any value by given
+# in list remove 2 and 3 value and insert new any value by given
 # l[2:4] = [45,48,55,63,69,78]
 # print(l)
-# # in list starting 0 t0 4 value remove and insert new any value by given
+# in list starting 0 t0 4 value remove and insert new any value by given
 # l[:5] = [45,48,55,63,69,78]
 # print(l)
 
@@ -34,19 +34,21 @@
 # a.extend(b)
 # print(a)
 
-# remove
-# l = [10,20,30,40,50,60]
+#remove
+l = [10,20,30,40,50,60]
 # l.remove(20)
 # print(l)
-# remove from last value
+#remove from last value
 # l.pop()
 # print(l)
-# remove from last given data value
+#remove from last given data value
 # l.pop(3)
 # print(l)
 
 # clear list
 # l.clear()
+# print(l)
+# del l[3]
 # print(l)
 # delete the list and then given error l is not defined
 # del l
@@ -69,36 +71,47 @@
 #     if "a" in i:
 #         l.append(i)
 # print(l)
+
 # l = [i for i in s if "a" in i]
 # print(l)
 
 # k = [i for i in s if i.startswith('p')]
 # print(k)
 
-s = ["python","java","php","android","react"]
-# # list sorting in asending order
+# s = ["python","java","php","android","react"]
+# list sorting in asending order
 # s.sort()
 # print(s)
-# # list sorting in desending order
+# list sorting in desending order
 # s.sort(reverse=True)
 # print(s)
 # list only in reverse order (not desending order)
 # s.reverse()
 # print(s)
 
+# s = ["python","java","php","android","react"]
 # k = sorted(s)
 # print(k)
 
-k = s
+s = ["python","java","php","android","react"]
+# k = s
 # k = s.copy()
 # print(k)
 # k = list(s)
 # print(k)
-k = s[:]
-print(k)
+# k = s[:]
+# print(k)
 
+s = ["python","java","php","android","react"]
+k = s.copy()
 k.append(5000)
 print(k)
 print(s)
 
+l = [10,20,30,10,50,60,10]
+k = [i for i in l if i==10]
+print(k)
 
+l = [10,20,30,10,50,60,10]
+k = ["abc" for i in l if i==10]
+print(k)

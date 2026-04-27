@@ -1,4 +1,6 @@
-number = 10011011
+# Binary to decimal
+
+number = 1011011
 p = 0
 sum = 0
 while number != 0:
