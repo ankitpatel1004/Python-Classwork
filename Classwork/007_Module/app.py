@@ -13,9 +13,12 @@
 # c.square(30)
 # t.sum(10,20,30)
 
-from calc import sum,square
-from test import *
-from calc import *
+# from calc import sum,square
+# from test import *
+# from calc import *
 
-sum(50,30)
-square(20)
+# sum(50,30)
+# square(20)
+
+from Demo import test
+test.sample()
