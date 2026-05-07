@@ -3,5 +3,3 @@ def sum(a,b):
 
 def square(a):
     print(a*a)
-
-
