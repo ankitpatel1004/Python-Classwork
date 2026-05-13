@@ -1,7 +1,0 @@
-Hello
-world
-PythonHello
-world
-Python
-Tops
-Surat
