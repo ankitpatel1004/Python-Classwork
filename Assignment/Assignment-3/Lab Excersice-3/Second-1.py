@@ -1,0 +1,6 @@
+product = input("Enter your product : ")
+quantity = int(input("Enter your quantity : "))
+price = float(input("Price : "))
+print(f"Your product is {product}")
+print(f"Your quantity is {quantity}")
+print(f"Price is {price}")
