@@ -41,7 +41,7 @@ root.title("My App")
 # t3 = Entry(root)
 # t3.grid(row=3,column=2)
 
-# b = Button(root,text="SUBMIT")
+# b = Button(root,text="SUBMIT",command=create)
 # b.grid(row=4,column=2)
 
 name = Label(root,text="Username")
