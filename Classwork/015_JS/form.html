@@ -10,95 +10,95 @@
 
 <script>
 
-        const validation = () => {
+    const validation = () => {
 
-            var name = document.getElementById("name").value
-            var email = document.getElementById("email").value
-            var phone = document.getElementById("phone").value
-            var age = document.getElementById("age").value
-            var pass = document.getElementById("pass").value
-            var cpass = document.getElementById("cpass").value
+        var name = document.getElementById("name").value
+        var email = document.getElementById("email").value
+        var phone = document.getElementById("phone").value
+        var age = document.getElementById("age").value
+        var pass = document.getElementById("pass").value
+        var cpass = document.getElementById("cpass").value
 
 
-            var nameErr = document.getElementById("nameErr")
-            var emailErr = document.getElementById("emailErr")
-            var phoneErr = document.getElementById("phoneErr")
-            var ageErr = document.getElementById("ageErr")
-            var passErr = document.getElementById("passErr")
-            var cpassErr = document.getElementById("cpassErr")
+        var nameErr = document.getElementById("nameErr")
+        var emailErr = document.getElementById("emailErr")
+        var phoneErr = document.getElementById("phoneErr")
+        var ageErr = document.getElementById("ageErr")
+        var passErr = document.getElementById("passErr")
+        var cpassErr = document.getElementById("cpassErr")
 
-            var btn = document.getElementById("btn")
+        var btn = document.getElementById("btn")
 
-            var nameExp = /^[a-zA-Z]+$/
-            var phoneExp = /^[0-9]{10}$/
+        var nameExp = /^[a-zA-Z]+$/
+        var phoneExp = /^[0-9]{10}$/
 
-            if (name == "" || name == null) {
-                nameErr.innerHTML = "Name is required"
-                btn.disabled = true
-            }
-            else if (!nameExp.test(name)) {
-                nameErr.innerHTML = "Invalid formate"
-            }
-            else {
-                nameErr.innerHTML = ""
-                btn.disabled = false
-            }
-
-            if (email == "" || email == null) {
-                emailErr.innerHTML = "Email is required"
-                btn.disabled = true
-            }
-            else {
-                emailErr.innerHTML = ""
-                btn.disabled = false
-            }
-
-            if (phone == "" || phone == null) {
-                phoneErr.innerHTML = "Phone is required"
-                btn.disabled = true
-            }
-            else if (!phoneExp.test(phone)) {
-                phoneErr.innerHTML = "Invalid formate or length"
-            }
-            else {
-                phoneErr.innerHTML = ""
-                btn.disabled = false
-            }
-
-            if (age == "" || age == null) {
-                ageErr.innerHTML = "Age is required"
-                btn.disabled = true
-            }
-            else {
-                ageErr.innerHTML = ""
-                btn.disabled = false
-            }
-
-            if (pass == "" || pass == null) {
-                passErr.innerHTML = "Password is required"
-                btn.disabled = true
-            }
-            else {
-                passErr.innerHTML = ""
-                btn.disabled = false
-            }
-
-            if (cpass == "" || cpass == null) {
-                cpassErr.innerHTML = "Confirm Password is required"
-                btn.disabled = true
-            }
-            else if (cpass != pass) {
-                cpassErr.innerHTML = "Confirm password must be same as password"
-                btn.disabled = true
-            }
-            else {
-                cpassErr.innerHTML = ""
-                btn.disabled = false
-            }
-
+        if (name == "" || name == null) {
+            nameErr.innerHTML = "Name is required"
+            btn.disabled = true
+        }
+        else if (!nameExp.test(name)) {
+            nameErr.innerHTML = "Invalid formate"
+        }
+        else {
+            nameErr.innerHTML = ""
+            btn.disabled = false
         }
 
-    </script>
+        if (email == "" || email == null) {
+            emailErr.innerHTML = "Email is required"
+            btn.disabled = true
+        }
+        else {
+            emailErr.innerHTML = ""
+            btn.disabled = false
+        }
+
+        if (phone == "" || phone == null) {
+            phoneErr.innerHTML = "Phone is required"
+            btn.disabled = true
+        }
+        else if (!phoneExp.test(phone)) {
+            phoneErr.innerHTML = "Invalid formate or length"
+        }
+        else {
+            phoneErr.innerHTML = ""
+            btn.disabled = false
+        }
+
+        if (age == "" || age == null) {
+            ageErr.innerHTML = "Age is required"
+            btn.disabled = true
+        }
+        else {
+            ageErr.innerHTML = ""
+            btn.disabled = false
+        }
+
+        if (pass == "" || pass == null) {
+            passErr.innerHTML = "Password is required"
+            btn.disabled = true
+        }
+        else {
+            passErr.innerHTML = ""
+            btn.disabled = false
+        }
+
+        if (cpass == "" || cpass == null) {
+            cpassErr.innerHTML = "Confirm Password is required"
+            btn.disabled = true
+        }
+        else if (cpass != pass) {
+            cpassErr.innerHTML = "Confirm password must be same as password"
+            btn.disabled = true
+        }
+        else {
+            cpassErr.innerHTML = ""
+            btn.disabled = false
+        }
+
+    }
+
+</script>
 
 </head>
 <body class="bg-light">
