@@ -23,6 +23,7 @@
                         <form method="post" action="{%url 'create'%}">
 
                             {%csrf_token%}
+                            <input type="hidden" name="id" value="{{student.id}}">
                             <!-- Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -31,18 +32,18 @@
                                     class="form-control" 
                                     id="name" 
                                     placeholder="Enter your name"
-                                    required name="name">
+                                    required name="name" value="{{student.name}}">
                             </div>
 
                             <!-- Email -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label" >Email</label>
                                 <input 
                                     type="email" 
                                     class="form-control" 
                                     id="email" 
                                     placeholder="Enter your email"
-                                    required name="email">
+                                    required name="email" value="{{student.email}}">
                             </div>
 
                             <!-- Age -->
@@ -54,14 +55,21 @@
                                     id="age" 
                                     placeholder="Enter your age"
                                     min="1"
-                                    required name="age">
+                                    required name="age" value="{{student.age}}">
                             </div>
 
                             <!-- Submit Button -->
+                            {% if student%}
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    updated
                                 </button>
+                            {%else%}
+                                <button type="submit" class="btn btn-primary">
+                                    saved
+                                </button>
+                            {%endif%}
+                                <a href="{%url 'display'%}" class="btn btn-info">display Student</a>
                             </div>
                         </form>
                     </div>
