@@ -38,13 +38,13 @@
                 <td>{{Student.name}}</td>
                 <td>{{Student.email}}</td>
                 <td>{{Student.age}}</td>
-                <td><a href="{%url 'delete'%}?id={{Student.id}}" class="btn btn-danger">delete</a></td>
-                <td><a href="{%url 'update'%}?id={{Student.id}}" class="btn btn-primary">update</a></td>
+                <td><a href="{%url 'delete'%}?id={{Student.id}}" class="btn btn-danger">Delete</a></td>
+                <td><a href="{%url 'update'%}?id={{Student.id}}" class="btn btn-primary">Update</a></td>
             </tr>
             {%endfor%}
         </tbody>
     </table>
-    <a href="{%url 'index' %}" class="btn btn-info">add Student</a>
+    <a href="{%url 'index' %}" class="btn btn-info">Add Student</a>
 
 </body>
 </html>
