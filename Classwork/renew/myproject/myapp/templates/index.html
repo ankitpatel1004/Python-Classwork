@@ -19,12 +19,13 @@
                 </div>
                 <div class="card-body">
                     <form method="post" action="{%url 'create'%}">
+                        <input type="hidden" name="id" value="{{product.id}}">
                         <span class="text-success">{{msg}}</span>
                         {%csrf_token%}
                         <!-- Product Name -->
                         <div class="mb-3">
                             <label for="productName" class="form-label">Product Name</label>
-                            <input type="text" class="form-control" id="productName" placeholder="Enter product name" name="productname">
+                            <input type="text" class="form-control" id="productName" placeholder="Enter product name" name="productname" value="{{product.productname}}">
                         </div>
 
                         <!-- Price -->
@@ -32,20 +33,29 @@
                             <label for="price" class="form-label">Price</label>
                             <div class="input-group">
                                 <span class="input-group-text">₹</span>
-                                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+                                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="{{product.price}}">
                             </div>
                         </div>
 
                         <!-- Quantity -->
                         <div class="mb-3">
                             <label for="quantity" class="form-label">Quantity</label>
-                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity">
+                            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity" value="{{product.quantity}}">
                         </div>
 
                         <!-- Submit Button -->
+                         {%if product%}
+                        <button type="submit" class="btn btn-success w-100">
+                            Update Data
+                        </button> 
+                        {%else%}
                         <button type="submit" class="btn btn-success w-100">
                             Save Product
                         </button>
+                         <a href="{%url 'display'%}" class="btn btn-primary w-100">
+                            Display Product
+                         </a>
+                         {%endif%}
                     </form>
                 </div>
             </div>
