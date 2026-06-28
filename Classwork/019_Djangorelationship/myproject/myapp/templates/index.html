@@ -21,23 +21,24 @@
 
                     <div class="card-body">
                         <form method="post" action="{%url 'create'%}">
+                            <input type="hidden" name="id" value="{{product.id}}">
                             {%csrf_token%}
                             <!-- Name -->
                             <div class="mb-3">
                                 <label for="name" class="form-label">Product Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter product name" name="name">
+                                <input type="text" class="form-control" id="name" placeholder="Enter product name" name="name" value="{{product.name}}">
                             </div>
 
                             <!-- Price -->
                             <div class="mb-3">
                                 <label for="price" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price">
+                                <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="{{product.price}}">
                             </div>
 
                             <!-- Quantity -->
                             <div class="mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
-                                <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="qty">
+                                <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="qty" value="{{product.qty}}">
                             </div>
 
                             <!-- Category -->

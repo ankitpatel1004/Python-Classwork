@@ -21,27 +21,60 @@
                 <table class="table table-bordered table-hover table-striped align-middle">
                     <thead class="table-dark">
                         <tr>
+                            <th>Sr.No.</th>
                             <th>ID</th>
                             <th>Product Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Category</th>
                             <th>Total</th>
+                            <th colspan="2">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {%for product in products%}
+                        {%if product.id == pro.id%}
+                        <form method="post" action="{%url 'create'%}"></form>
+                            {%csrf_token%}
+                           <tr>
+                            
+                            <td><input type="hidden" name="id" value="{{product.id}}"></td>
+                            <td><input type="text" name="name" value="{{product.name}}"></td>
+                            <td><input type="text" name="price" value="{{product.price}}"></td>
+                            <td><input type="text" name="qty" value="{{product.qty}}"></td>
+                            <td>
+                                <select class="form-select" name="cat">
+                                    <option selected disabled>Select Category</option>
+                                    {%for cat in categories%}
+                                    <option value="{{cat.id}}" {%if cat.id == product.category.id%}selected{%endif%}>
+                                        {{cat.name}}</option>
+                                    {%endfor%}
+                                    </select>
+                                </td>
+                            <td>{{product.total}}</td>
+                            <td><button type="submit" class="btn btn-success">Update</button></td>
+                       </tr>
+                            </td>
+                       </tr>
+                       {%else%}
                        <tr>
+                            <td>{{forloop.counter}}</td>
                             <td>{{product.id}}</td>
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
                             <td>{{product.qty}}</td>
                             <td>{{product.category.name}}</td>
                             <td>{{product.total}}</td>
+                            <td>
+                                <a href="{%url 'delete'%}?id={{product.id}}" class="btn btn-danger">Delete</a>
+                                <a href="{%url 'update'%}?id={{product.id}}" class="btn btn-primary">Update</a>
+                            </td>
                        </tr>
+                       {%endif%}
                        {%endfor%}
                     </tbody>
                 </table>
+                <a href="{%url 'index'%}">Add Product</a>
             </div>
         </div>
     </div>
