@@ -20,7 +20,7 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="post" action="{%url 'create'%}">
+                        <form method="post" action="{%url 'create'%}"  enctype="multipart/form-data">
                             <input type="hidden" name="id" value="{{product.id}}">
                             {%csrf_token%}
                             <!-- Name -->
@@ -39,6 +39,11 @@
                             <div class="mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
                                 <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="qty" value="{{product.qty}}">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" name="image">
                             </div>
 
                             <!-- Category -->
