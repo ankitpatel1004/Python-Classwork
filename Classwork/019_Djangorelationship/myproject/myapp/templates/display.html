@@ -78,7 +78,7 @@
                                     </select>
                                 </td>
 
-                                <td>{{ product.price|floatformat:2 }}</td>
+                                <td>{{ product.total }}</td>
 
                                 <td>
                                     <button class="btn btn-success btn-sm">Update</button>
@@ -98,7 +98,7 @@
                             <td>{{ product.price }}</td>
                             <td>{{ product.qty }}</td>
                             <td>{{ product.category.name }}</td>
-                            <td>{{ product.price|floatformat:2 }}</td>
+                            <td>{{ product.total }}</td>
 
                             <td>
                                 <a href="{% url 'delete' %}?id={{ product.id }}" class="btn btn-danger btn-sm">
