@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
-
+from myapp.models import *
 # Create your views here.
 
 def index(request):
@@ -48,13 +48,13 @@ def user_logout(request):
     return redirect("index")
 
 def student(request):
-    if request.user.is_authenticated and request.user.role.name=='student':
+    if request.user.is_authenticated and request.user.role.name == 'student':
         return render(request,"student.html")
     else:
         return render(request,"index.html")
 
 def faculty(request):
-    if request.user.is_authenticated and request.user.role.name=='faculty':
+    if request.user.is_authenticated and request.user.role.name == 'faculty':
         return render(request,"faculty.html")
     else:
         return render(request,"index.html")

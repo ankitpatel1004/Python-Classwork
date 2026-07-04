@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from myapp.models import *
 
 # Create your views here.
@@ -26,5 +26,7 @@ def display_product(request):
     return render(request,"display.html",{'products':products})
 
 def delete_product(request):
-    products = Product.objects.all()
-    return render(request,"display")
+    id = request.GET.get("id")
+    product = Product.objects.get(id=id)
+    product.delete()
+    return redirect("display")
