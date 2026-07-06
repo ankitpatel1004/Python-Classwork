@@ -32,6 +32,7 @@
                     </thead>
                     <tbody>
                         {%for p in products%}
+                     
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{p.id}}</td>
@@ -40,7 +41,7 @@
                             <td>{{p.qty}}</td>
                             <td>{{p.category.name}}</td>
                             <td><a href="{%url 'delete'%}?id={{p.id}}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="" class="btn btn-success">Update</a></td>
+                            <td><a href="{%url 'update'%}?id={{p.id}}" class="btn btn-success">Update</a></td>
                         </tr>
                         {%endfor%}
                     </tbody>
