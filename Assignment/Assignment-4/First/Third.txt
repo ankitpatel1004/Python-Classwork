@@ -1,0 +1,25 @@
+foodiehub_project
+
+manage.py
+manage.py is a automatically generated command-line utility that acts as the primary tool for managing
+and executing administrative tasks within your specific web project. 
+
+settings.py
+The settings.py file is the core configuration hub of any Django project. It is a standard Python module
+containing module-level variables that dictate how your entire web application behaves, connecting your database,
+security settings, apps, and assets.
+
+urls.py
+The urls.py file in Django acts as the router or traffic controller for your web application. It maps incoming
+browser HTTP requests (URLs) to the specific Python code (views) that should process them
+
+wsgi.py
+wsgi.py is the entry-point file that allows WSGI-compatible web servers to communicate with and serve your
+web application. WSGI stands for Web Server Gateway Interface, which is the standard Python specification for
+linking a web server (like Nginx or Apache) to a Python web framework.
+
+asgi.py
+asgi.py is the entry-point configuration file for asynchronous-capable web servers to serve your Django project.
+Introduced natively in Django 3.0, it serves as the spiritual successor to wsgi.py. While WSGI handles synchronous
+request-response cycles, ASGI (Asynchronous Server Gateway Interface) allows Django to handle asynchronous features
+like WebSockets, long-polling, and async background tasks concurrently without blocking the server.

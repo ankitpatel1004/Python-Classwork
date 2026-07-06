@@ -1,0 +1,7 @@
+Write a short comparison (3-4 lines) between Django and Flask, focusing on features and use cases for each.
+Use an example app you use daily (like Instagram or Zomato) to explain which framework would be better and why
+
+Django is a full-featured Python web framework with built-in tools like authentication, an admin panel, and database
+management, making it ideal for large, complex applications. Flask is a lightweight and flexible framework that gives
+developers more control, making it better for small projects and APIs. For a daily-use app like Instagram, Django
+would be a better choice because it provides built-in features that support user accounts, security, and scalable development.
