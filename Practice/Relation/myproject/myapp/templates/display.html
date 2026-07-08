@@ -31,17 +31,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {%for p in products%}
+                        {%for product in products%}
                      
                         <tr>
                             <td>{{forloop.counter}}</td>
-                            <td>{{p.id}}</td>
-                            <td>{{p.name}}</td>
-                            <td>{{p.price}}</td>
-                            <td>{{p.qty}}</td>
-                            <td>{{p.category.name}}</td>
-                            <td><a href="{%url 'delete'%}?id={{p.id}}" class="btn btn-danger">Delete</a></td>
-                            <td><a href="{%url 'update'%}?id={{p.id}}" class="btn btn-success">Update</a></td>
+                            <td>{{product.id}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.qty}}</td>
+                            <td>{{product.category.name}}</td>
+                            <td><a href="{%url 'delete'%}?id={{product.id}}" class="btn btn-danger">Delete</a></td>
+                            <td><a href="{%url 'update'%}?id={{product.id}}" class="btn btn-success">Update</a></td>
                         </tr>
                         {%endfor%}
                     </tbody>

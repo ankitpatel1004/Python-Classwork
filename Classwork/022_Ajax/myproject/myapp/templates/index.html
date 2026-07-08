@@ -1,31 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
-<script>
+    <script>
 
-    $(document).ready(function () {
-
-    })
-
-    const test = () => {
-        var q = $("#q").val()
-
-        $.get("test",{ q }, function(rt) {
-            $('#data').html(rt)
+        $(document).ready(function () {
+            country()
         })
-    }
-</script>
-</head>
+
+        const test = () => {
+            var q = $("#q").val()
+            $.get("test",{ q },function (rt) {
+                $("#data").html(rt)
+            })
+        }
+
+        const search = (q) => {
+            $.get("search", { q }, function (rt) {
+                $("#search_data").html(rt)
+            })
+        }
+
+        const country = () => {
+            $.get("countries", {}, function (rt) {
+                var options = "<option value='0'>Select Country</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#country").html(options)
+            })
+        }
+
+        const state = (cid) => {
+            $.get("states", { cid }, function (rt) {
+                var options = "<option value='0'>Select State</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#state").html(options)
+            })
+        }
+
+        const city = (sid) => {
+            $.get("cities", { sid }, function (rt) {
+                var options = "<option value='0'>Select City</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#city").html(options)
+            })
+        }
+
+    </script>
 </head>
 <body>
+
     <input type="text" id="q">
     <button onclick="test()">Submit</button>
     <div id="data"></div>
+
+    <br>
+    <hr>
+    <br>
+
+    <input type="text" onkeyup="search(value)">
+    <div id="search_data"></div>
+
+    <br>
+    <hr>
+    <br>
+
+    <select name="country" id="country" onchange="state(value)">
+        <option value="0">Select Country</option>
+    </select>
+
+    <select name="state" id="state" onchange="city(value)">
+        <option value="0">Select State</option>
+    </select>
+
+    <select name="city" id="city">
+        <option value="0">Select City</option>
+    </select>
+
 </body>
 </html>

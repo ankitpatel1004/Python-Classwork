@@ -18,17 +18,17 @@ def create_product(request):
         category = Category.objects.get(id=cat)
 
         if id:
-            product = Product.objects.get("id=id")
+            product = Product.objects.get(id=id)
             product.name = name
             product.price = price
             product.qty = qty
             product.category = category
             product.save()
-            return redirect("display")
+            return render(request,"index.html")
         else:
             Product.objects.create(name=name,price=price,qty=qty,category=category)
-
-    return redirect("index")
+            
+    return redirect("display")
 
 def display_product(request):
     products = Product.objects.all()
@@ -43,4 +43,6 @@ def delete_product(request):
 def update_product(request):
     id = request.GET.get("id")
     product = Product.objects.get(id=id)
-    return render(request,"index.html",{"product":product})
+    categories = Category.objects.all()
+    products = Product.objects.all()
+    return render(request,"index.html",{"product":product,"categories":categories,"products":products})
