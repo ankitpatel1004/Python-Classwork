@@ -24,11 +24,11 @@ def create_product(request):
             product.qty = qty
             product.category = category
             product.save()
-            return render(request,"index.html")
+            return redirect("display")
         else:
             Product.objects.create(name=name,price=price,qty=qty,category=category)
             
-    return redirect("display")
+    return redirect("index")
 
 def display_product(request):
     products = Product.objects.all()
@@ -45,4 +45,4 @@ def update_product(request):
     product = Product.objects.get(id=id)
     categories = Category.objects.all()
     products = Product.objects.all()
-    return render(request,"index.html",{"product":product,"categories":categories,"products":products})
+    return render(request,"display.html",{"product":product,"categories":categories,"products":products})
