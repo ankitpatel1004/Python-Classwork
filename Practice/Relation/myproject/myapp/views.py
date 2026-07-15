@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from myapp.models import *
+import os
 
 # Create your views here.
 
@@ -16,6 +17,7 @@ def create_product(request):
         qty = data.get('qty')
         cat = data.get('cat')
         category = Category.objects.get(id=cat)
+        image = request.FILES.get("image")
 
         if id:
             product = Product.objects.get(id=id)
@@ -23,6 +25,10 @@ def create_product(request):
             product.price = price
             product.qty = qty
             product.category = category
+            if request.FILES:
+                if product.image:
+                    os.remove(product.image.path)
+                product.image = image
             product.save()
             return redirect("display")
         else:
@@ -37,6 +43,7 @@ def display_product(request):
 def delete_product(request):
     id = request.GET.get("id")
     product = Product.objects.get(id=id)
+    os.remove(product.image.path)
     product.delete()
     return redirect("display")
 
@@ -44,5 +51,7 @@ def update_product(request):
     id = request.GET.get("id")
     product = Product.objects.get(id=id)
     categories = Category.objects.all()
+    if request.FILES.get('image'):
+        product.image = request.FILES['image']
     products = Product.objects.all()
-    return render(request,"display.html",{"product":product,"categories":categories,"products":products})
+    return render(request,"display.html",{"pro":product,"categories":categories,"products":products})

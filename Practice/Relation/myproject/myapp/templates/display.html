@@ -23,25 +23,28 @@
                         <tr>
                             <th>Sr.No.</th>
                             <th>ID</th>
+                            <th>Image</th>
                             <th>Product Name</th>
                             <th>Price ($)</th>
                             <th>Quantity</th>
                             <th>Category</th>
+                            <th>Total</th>
                             <th colspan="2">Action</th>
                         </tr>
                     </thead>
                      <tbody>
                         {%for product in products%}
-                        {%if product.id == product.id%}
-                        <form method="post" action="{%url 'create'%}">
+                        {%if product.id == pro.id%}
+                        <form method="post" action="{%url 'create'%}" enctype="multipart/form-data">
                             {%csrf_token%}
                             <tr>
                                 <td>{{forloop.counter}}</td>
-                                <td><input type="hidden" name="id" value="{{product.id}}"></td>
-                                <td><input type="text" name="name" value="{{product.name}}" class="form-control w-80">
+                                <td>{{product.id}}<input type="hidden" name="id" value="{{product.id}}"></td>
+                                <td><input type="fiel" name="image"></td>
+                                <td><input type="text" name="name" value="{{product.name}}">
                                 </td>
-                                <td><input type="text" name="price" value="{{product.price}}" class="form-control w-80"></td>
-                                <td><input type="text" name="qty" value="{{product.qty}}" class="form-control w-50"></td>
+                                <td><input type="text" name="price" value="{{product.price}}"></td>
+                                <td><input type="text" name="qty" value="{{product.qty}}"></td>
                                 <td>
                                     <select class="form-select" name="cat" class="form-control w-80">
                                         <option selected disabled>Select Category</option>
@@ -51,21 +54,20 @@
                                         {%endfor%}
                                     </select>
                                 </td>
+                                <td>{{product.total}}</td>
                                 <td><button type="submit" class="btn btn-success">Update</button></td>
-                                <td>
-                                    <input type="reset" class="btn btn-secondary">
-                                </td>
-                                </td>
                             </tr>
                         </form>
                         {%else%}
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{product.id}}</td>
+                            <td><img src="media/{{product.image}}" alt="{{product.image}}"></td>
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
                             <td>{{product.qty}}</td>
                             <td>{{product.category.name}}</td>
+                            <td>{{product.total}}</td>
                             <td><a href="{%url 'delete'%}?id={{product.id}}" class="btn btn-danger">Delete</a></td>
                             <td><a href="{%url 'update'%}?id={{product.id}}" class="btn btn-success">Update</a></td>
                         </tr>
@@ -73,7 +75,7 @@
                         {%endfor%}
                     </tbody>
                 </table>
-                <a href="{%url 'index'%}">Add Product</a>
+                <a href="{%url 'index'%}" class="btn btn-secondary">Add Product</a>
             </div>
         </div>
     </div>
