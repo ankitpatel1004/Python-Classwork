@@ -40,7 +40,7 @@
                             <tr>
                                 <td>{{forloop.counter}}</td>
                                 <td>{{product.id}}<input type="hidden" name="id" value="{{product.id}}"></td>
-                                <td><input type="fiel" name="image"></td>
+                                <td><input type="file" name="image"></td>
                                 <td><input type="text" name="name" value="{{product.name}}">
                                 </td>
                                 <td><input type="text" name="price" value="{{product.price}}"></td>
@@ -62,7 +62,7 @@
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td>{{product.id}}</td>
-                            <td><img src="media/{{product.image}}" alt="{{product.image}}"></td>
+                            <td><img src="media/{{product.image}}" alt="{{product.image}}" width="50px" height="50px"></td>
                             <td>{{product.name}}</td>
                             <td>{{product.price}}</td>
                             <td>{{product.qty}}</td>

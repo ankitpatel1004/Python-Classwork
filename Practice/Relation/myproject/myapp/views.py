@@ -33,6 +33,7 @@ def create_product(request):
             return redirect("display")
         else:
             Product.objects.create(name=name,price=price,qty=qty,category=category)
+            return render(request,"index.html",{"msg":"Product added successfully"})
             
     return redirect("index")
 
@@ -41,17 +42,15 @@ def display_product(request):
     return render(request,"display.html",{'products':products})
 
 def delete_product(request):
-    id = request.GET.get("id")
+    id = request.GET['id']
     product = Product.objects.get(id=id)
     os.remove(product.image.path)
     product.delete()
     return redirect("display")
 
 def update_product(request):
-    id = request.GET.get("id")
+    id = request.GET['id']
     product = Product.objects.get(id=id)
     categories = Category.objects.all()
-    if request.FILES.get('image'):
-        product.image = request.FILES['image']
     products = Product.objects.all()
     return render(request,"display.html",{"pro":product,"categories":categories,"products":products})
