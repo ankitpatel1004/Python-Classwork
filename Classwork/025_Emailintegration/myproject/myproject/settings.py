@@ -124,3 +124,6 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = "ankitpatel8085@gmail.com"
 EMAIL_HOST_PASSWORD = "rmih pkth ybwi jrcb"  # Use a Gmail App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+MEDIA_URL='/media/'
+MEDIA_ROOT=BASE_DIR/'media'
