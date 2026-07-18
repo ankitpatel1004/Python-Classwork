@@ -21,7 +21,7 @@
 
                 <div class="card-body">
                     <span class="text-success">{{msg}}</span>
-                    <form method="POST" action="{%url 'create'%}">
+                    <form method="POST" action="{%url 'create'%}" enctype="multipart/form-data">
                         {%csrf_token%}
                         <input type="hidden" name="id" value="{{product.id}}">
                         <!-- Product Name -->

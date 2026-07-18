@@ -32,7 +32,7 @@ def create_product(request):
             product.save()
             return redirect("display")
         else:
-            Product.objects.create(name=name,price=price,qty=qty,category=category)
+            Product.objects.create(name=name,price=price,qty=qty,category=category,image=image)
             return render(request,"index.html",{"msg":"Product added successfully"})
             
     return redirect("index")
