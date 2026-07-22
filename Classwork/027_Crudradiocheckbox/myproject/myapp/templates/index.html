@@ -46,17 +46,17 @@
                             <label class="form-label d-block">Gender</label>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male">
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="Male" {%if student.gender == 'Male'%}checked{%endif%}>
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="Female" {%if student.gender == 'Female'%}checked{%endif%}>
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
 
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
+                                <input class="form-check-input" type="radio" name="gender" id="other" value="Other" {%if student.gender == 'Other'%}checked{%endif%}>
                                 <label class="form-check-label" for="other">Other</label>
                             </div>
                         </div>
@@ -66,17 +66,17 @@
                             <label class="form-label d-block">Languages Known</label>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="lang" id="english" value="English">
+                                <input class="form-check-input" type="checkbox" name="lang" value="English" {%if 'English' in student.lang %}checked{%endif%}> 
                                 <label class="form-check-label" for="english">English</label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="lang" id="hindi" value="Hindi">
+                                <input class="form-check-input" type="checkbox" name="lang" value="Hindi" {%if 'Hindi' in student.lang %}checked{%endif%}>
                                 <label class="form-check-label" for="hindi">Hindi</label>
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="lang" id="gujarati" value="Gujarati">
+                                <input class="form-check-input" type="checkbox" name="lang" value="Gujarati" {%if 'Gujarati' in student.lang %}checked{%endif%}>
                                 <label class="form-check-label" for="gujarati">Gujarati</label>
                             </div>
                         </div>
@@ -86,11 +86,11 @@
                             <label class="form-label">Country</label>
                             <select class="form-select" name="country">
                                 <option selected>Select Country</option>
-                                <option>India</option>
-                                <option>USA</option>
-                                <option>Canada</option>
-                                <option>Australia</option>
-                                <option>UK</option>
+                                <option {%if student.country == 'India'%}selected{%endif%}>India</option>
+                                <option {%if student.country == 'USA'%}selected{%endif%}>USA</option>
+                                <option {%if student.country == 'Canada'%}selected{%endif%}>Canada</option>
+                                <option {%if student.country == 'Australia'%}selected{%endif%}>Australia</option>
+                                <option {%if student.country == 'UK'%}selected{%endif%}>UK</option>
                             </select>
                         </div>
 

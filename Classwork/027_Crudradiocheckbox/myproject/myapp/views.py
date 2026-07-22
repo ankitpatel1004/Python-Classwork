@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from myapp.models import *
 # Create your views here.
 
@@ -9,7 +9,7 @@ def index(request):
         email = data.get("email")
         password = data.get("password")
         gender = data.get("gender")
-        lang = data.get("lang")
+        lang = data.getlist("lang")
         country = data.get("country")
         address = data.get("address")
         l = ""
@@ -27,7 +27,28 @@ def display(request):
     return render(request,"display.html",{"students":students})
 
 def delete(request):
-    return render(request,"display.html")
+    id = request.GET['id']
+    student = Student.objects.get(id=id)
+    student.delete()
+    return redirect("display")
 
 def update(request):
-    return render(request,"display.html")
+    id = request.GET['id']
+    student =Student.objects.get(id=id)
+    if request.method == 'POST':
+        data = request.POST
+        student.name = data.get("name")
+        student.email = data.get("email")
+        student.password = data.get("password")
+        student.gender = data.get("gender")
+        lang = data.getlist("lang")
+        student.country = data.get("country")
+        student.address = data.get("address")
+        l=""
+        for i in lang:
+            l+=i+","
+        student.lang = l
+        student.save()
+        return render(request,"index.html",{"message":"Updated successfully"})
+
+    return render(request,"index.html",{"student":student})
