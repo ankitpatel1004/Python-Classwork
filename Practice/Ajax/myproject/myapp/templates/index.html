@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"
+        integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+            collage()
+        })
+
+        // $(document).ready(function () {
+        //     alert("Hello")
+        // })
+
+        const test = () => {
+            var q = $("#q").val()
+
+            $.get("test", { q }, function (rt) {
+                $("#data").html(rt)
+            })
+        }
+
+        const search = (q) => {
+            $.get("search", { q }, function (rt) {
+                $("#search_data").html(rt)
+            })
+        }
+
+        const collage = () => {
+            $.get("collages", {}, function (rt) {
+                var options = "<option value='0'>Select Collage</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#collage").html(options)
+            })
+        }
+
+        const department = (cid) => {
+            $.get("departments", { cid }, function (rt) {
+                var options = "<option value='0'>Select Department</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#department").html(options)
+            })
+        }
+
+        const student = (did) => {
+            $.get("students", { did }, function (rt) {
+                var options = "<option value='0'>Select Student</option>"
+                rt.data.map(ele => {
+                    options += `<option value="${ele.id}">${ele.name}</option>`
+                })
+                $("#student").html(options)
+            })
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <input type="text" id="q">
+    <button onclick="test()">Submit</button>
+    <div id="data"></div>
+
+    <br>
+    <hr>
+    <br>
+
+    <input type="text" onkeyup="search(value)">
+    <div id="search_data"></div>
+
+    <br>
+    <hr>
+    <br>
+
+    <select name="collage" id="collage" onchange="department(value)">
+        <option value="0">Select Collage</option>
+    </select>
+
+    <select name="department" id="department" onchange="student(value)">
+        <option value="0">Select Department</option>
+    </select>
+
+    <select name="student" id="student">
+        <option value="0">Select Student</option>
+    </select>
+
+</body>
+
+</html>
