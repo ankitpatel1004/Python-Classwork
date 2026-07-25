@@ -5,8 +5,8 @@ admin.site.register(Product)
 
 class CountryDisplay(admin.ModelAdmin):
     list_display = ['id','name']
-    search_fields = ['name']
-    list_filter=['name']
+    # search_fields = ['name']
+    # list_filter=['name']
 
 admin.site.register(Country,CountryDisplay)
 admin.site.register(State)
