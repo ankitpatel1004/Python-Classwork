@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     if request.method == 'POST':
         data = request.POST
-        uname = data.get("username")
+        uname = data.get("uname")
         password = data.get("password")
 
         user = authenticate(username=uname,password=password)
