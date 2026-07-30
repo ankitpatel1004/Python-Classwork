@@ -13,7 +13,7 @@ class ProductSerializer(serializers.ModelSerializer):
             fields='__all__'
             # fields=['id','name']
             # exclude=['name']
-            depth = 1
+            # depth = 1
 
     def validate(self, attrs):
         if attrs['qty']<1:

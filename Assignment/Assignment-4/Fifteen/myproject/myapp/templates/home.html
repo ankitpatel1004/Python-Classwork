@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Buyer & Seller</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #333;
+            color: white;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            font-size: 24px;
+        }
+
+        .logout-btn {
+            text-decoration: none;
+            background: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #b02a37;
+        }
+
+        /* Main Content */
+        .container {
+            width: 350px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .buyer {
+            background: #007bff;
+        }
+
+        .buyer:hover {
+            background: #0056b3;
+        }
+
+        .seller {
+            background: #28a745;
+        }
+
+        .seller:hover {
+            background: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h2>Buyer & Seller Portal</h2>
+        <a href="{%url 'index'%}" class="logout-btn">Logout</a>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Welcome {{user.first_name}}</h1>
+        <p>Select your role to continue</p>
+
+        <a href="{%url 'buyer'%}" class="btn buyer">Buyer</a>
+        <a href="{%url 'seller'%}" class="btn seller">Seller</a>
+    </div>
+
+</body>
+</html>
