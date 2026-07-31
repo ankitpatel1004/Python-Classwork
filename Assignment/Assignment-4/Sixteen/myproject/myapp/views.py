@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import razorpay
 from django.http import JsonResponse
+
 # Create your views here.
 
 def index(request):
