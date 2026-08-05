@@ -22,7 +22,7 @@ def mail_send(request):
         message=msg,
         from_email=settings.DEFAULT_FROM_EMAIL,
         recipient_list=[to],
-        html_message="<h1>Hello Django</h1>",
+        # html_message="<h1>Hello Django</h1>",
         fail_silently=False
     )
     return render(request,"index.html",{"msg":"Email sent successfully"})
@@ -57,7 +57,7 @@ def mail_attach(request):
 
 def send_sms(request):
 
-    url = "https://www.fast2sms.com/dev/bulkV2?route=q&message=hello&numbers=9173828868"
+    url = "https://www.fast2sms.com/dev/bulkV2?route=q&message=hello&numbers=9898345421"
 
     headers = {
         "accept": "application/json",
