@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -15,4 +16,3 @@ def send_sms(request):
     response = requests.get(url, headers=headers)
     print(response.text)
     return HttpResponse("SMS Sent")
-    
