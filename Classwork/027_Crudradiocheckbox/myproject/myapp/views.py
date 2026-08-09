@@ -52,3 +52,4 @@ def update(request):
         return render(request,"index.html",{"message":"Updated successfully"})
 
     return render(request,"index.html",{"student":student})
+    

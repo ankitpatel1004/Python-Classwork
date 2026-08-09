@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view,APIView,permission_classes
 from rest_framework.permissions import IsAdminUser,IsAuthenticated,AllowAny
+from myapp.serializer import *
 
 # Create your views here.
 
@@ -20,3 +21,12 @@ def get_admin(request):
 def get_normal(request):
     return Response("Normal api calling")
 
+@api_view(['POST'])
+def reg(request):
+    ser = UserSerializer(data=request.data)
+    if ser.is_valid():
+        ser.save()
+        return Response({"message":"Registration successfully"})
+    else:
+        return Response({"error":ser.errors})
+        
