@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from myapp.serializer import *
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
 
 # Create your views here.
 
@@ -19,4 +20,3 @@ class CategoryViewSet(viewsets.ModelViewSet):
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-
