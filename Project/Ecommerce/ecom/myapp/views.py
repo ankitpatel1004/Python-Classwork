@@ -1,0 +1,130 @@
+from django.shortcuts import render
+from rest_framework import viewsets
+from myapp.serializer import *
+from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
+from rest_framework.decorators import api_view,APIView
+from rest_framework.response import Response
+from rest_framework import status
+
+# Create your views here.
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAdminUser]
+
+        return [permission() for permission in permission_classes]
+    
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    
+    def get_permissions(self):
+        if self.action in ['list', 'retrieve']:
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAdminUser]
+
+        return [permission() for permission in permission_classes]
+
+class AddressViewSet(viewsets.ModelViewSet):
+
+    serializer_class = AddressSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        """
+        Return only addresses belonging to logged-in user.
+        """
+        return Address.objects.filter(
+            user=self.request.user
+        ).order_by("-is_default", "-created_at")
+            
+    def perform_create(self, serializer):
+        """
+        Automatically assign logged-in user.
+        User does not need to send user ID.
+        """
+        serializer.save(
+            user=self.request.user
+        )
+        
+class CartViewSet(APIView):
+    
+    def get_cart(self,user):
+        cart,created = Cart.objects.get_or_create(user=user)  
+        return cart
+    
+    def get(self,request):
+        # cart = Cart.objects.get(user=request.user)
+        cart = self.get_cart(request.user)
+        serializer = CartSerializer(cart)
+
+        return Response(
+                    {
+                        "cart": serializer.data
+                    },
+                    status=status.HTTP_200_OK
+                )
+    
+    def post(self,request):
+        data = request.data
+        product = data['product']
+        qty = data['qty']
+        
+        try:
+
+            product = Product.objects.get(
+                id=product,
+                is_active=True
+            )
+
+        except Product.DoesNotExist:
+
+            return Response(
+                {
+                    "error": "Product not found."
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )
+        
+        cart = self.get_cart(request.user)
+        
+        cart_item, created = CartItem.objects.get_or_create(
+            cart=cart,
+            product= product,
+            defaults={
+                "quantity": qty
+            }
+        )
+        
+        if not created:
+            new_quantity = (
+                cart_item.quantity + qty
+            )
+        
+            cart_item.quantity = new_quantity
+
+            cart_item.save()
+           
+        serializer = CartSerializer(
+            cart
+        )
+
+        return Response(
+            {
+                "message": "Product added to cart successfully.",
+                "cart": serializer.data
+            },
+            status=status.HTTP_200_OK
+        )
+        
