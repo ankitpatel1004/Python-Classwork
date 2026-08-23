@@ -2,9 +2,10 @@ from django.shortcuts import render
 from rest_framework import viewsets
 from myapp.serializer import *
 from rest_framework.permissions import IsAdminUser, IsAuthenticated, AllowAny
-from rest_framework.decorators import api_view,APIView
+from rest_framework.decorators import api_view,APIView,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
+import razorpay
 
 # Create your views here.
 
@@ -128,3 +129,17 @@ class CartViewSet(APIView):
             status=status.HTTP_200_OK
         )
         
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def payment(request):
+    amount = request.data['amount']
+    id = "rzp_test_TDGqon3ZZeG3V9"
+    secret="9f9QZ31p4RmGBTG52F33WXGJ"
+
+    client = razorpay.Client(auth=(id,secret))
+
+    data = { "amount": amount*100, "currency": "INR", "receipt": "order_rcptid_11" }
+    payment = client.order.create(data=data) # Amount is in currency subunits.
+    print(payment)
+    return Response(payment)   
+    

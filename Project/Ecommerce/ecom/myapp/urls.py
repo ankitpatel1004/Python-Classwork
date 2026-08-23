@@ -21,5 +21,6 @@ router.register("addresses",AddressViewSet,basename="address")
 
 urlpatterns = [
     path("", include(router.urls)),
-    path("carts",CartViewSet.as_view())
+    path("carts",CartViewSet.as_view()),
+    path("payment",payment,name="payment"),
 ]
