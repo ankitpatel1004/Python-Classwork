@@ -1,0 +1,323 @@
+{% extends 'base.html' %}
+
+{% block title %}Rooms{% endblock %}
+
+{% block body %}
+
+<style>
+
+    /* ================= ROOMS PAGE ================= */
+
+    .rooms-page {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        min-height: calc(100vh - 150px);
+        background: #f8f9fa;
+    }
+
+    .rooms-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .rooms-title h1 {
+        font-size: 38px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .rooms-title h1 span {
+        color: #d99b24;
+    }
+
+    .rooms-title p {
+        color: #777;
+        margin: 0;
+    }
+
+
+    /* ================= ROOM GRID ================= */
+
+    .rooms-grid {
+        row-gap: 30px;
+    }
+
+
+    /* ================= ROOM CARD ================= */
+
+    .room-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        background: white;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+
+    .room-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+
+    /* ================= ROOM IMAGE ================= */
+
+    .room-card img {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        display: block;
+    }
+
+
+    /* ================= ROOM CONTENT ================= */
+
+    .room-content {
+        padding: 22px;
+        min-height: 240px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .room-content h4 {
+        font-size: 21px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+
+    /* ================= RATING ================= */
+
+    .rating {
+        color: #f4b942;
+        font-size: 14px;
+        white-space: nowrap;
+    }
+
+
+    /* ================= DESCRIPTION ================= */
+
+    .room-description {
+        color: #777;
+        font-size: 14px;
+        line-height: 1.7;
+        margin-top: 15px;
+        margin-bottom: 20px;
+
+        /*
+        Keeps all cards approximately
+        the same height.
+        */
+        min-height: 72px;
+    }
+
+
+    /* ================= PRICE ================= */
+
+    .price {
+        color: #d99b24;
+        font-size: 21px;
+        font-weight: 700;
+    }
+
+    .price small {
+        color: #777;
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+
+    /* ================= BUTTON ================= */
+
+    .btn-main {
+        background: #f4b942;
+        border: none;
+        color: #111;
+        padding: 11px 22px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-main:hover {
+        background: #d99b24;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 768px) {
+
+        .rooms-page {
+            padding-top: 90px;
+            padding-bottom: 70px;
+        }
+
+        .rooms-title h1 {
+            font-size: 30px;
+        }
+
+        .room-card img {
+            height: 220px;
+        }
+
+    }
+
+</style>
+
+
+<!-- ================= ROOMS PAGE ================= -->
+
+<section class="rooms-page">
+
+    <div class="container">
+
+        <!-- PAGE TITLE -->
+
+        <div class="rooms-title">
+
+            <h1>
+                Our <span>Rooms</span>
+            </h1>
+
+            <p>
+                Choose the perfect room for your comfortable stay.
+            </p>
+
+        </div>
+
+
+        <!-- ================= ROOM GRID ================= -->
+
+        <div class="row g-4 rooms-grid">
+
+            {% for room in rooms %}
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="room-card">
+
+                    <!-- ROOM IMAGE -->
+
+                    {% if room.image %}
+
+                    <img
+                        src="{{ room.image.url }}"
+                        alt="{{ room.name }}">
+
+                    {% else %}
+
+                    <img
+                        src="https://via.placeholder.com/1000x600?text=No+Image"
+                        alt="No Image">
+
+                    {% endif %}
+
+
+                    <!-- ROOM CONTENT -->
+
+                    <div class="room-content">
+
+                        <!-- NAME + RATING -->
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <h4>
+                                {{ room.name }}
+                            </h4>
+
+                            <div class="rating">
+
+                                ★★★★★
+
+                                <small class="text-muted">
+                                    {{ room.rating }}
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- ROOM TYPE -->
+
+                        <div class="mt-2">
+
+                            <span class="badge bg-warning text-dark">
+
+                                {{ room.room_type }}
+
+                            </span>
+
+                        </div>
+
+
+                        <!-- DESCRIPTION -->
+
+                        <p class="room-description">
+
+                            {{ room.description }}
+
+                        </p>
+
+
+                        <!-- PRICE + BUTTON -->
+
+                        <div class="d-flex justify-content-between align-items-center mt-auto">
+
+                            <div class="price">
+
+                                ₹{{ room.price }}
+
+                                <small>
+                                    / night
+                                </small>
+
+                            </div>
+
+
+                            <a href="#"
+                               class="btn btn-main">
+
+                                Book Now
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="text-center py-5">
+
+                    <h4>
+                        No rooms available
+                    </h4>
+
+                    <p class="text-muted">
+                        Please check again later.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

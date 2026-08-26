@@ -1,0 +1,427 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+
+<style>
+
+    /* ================= CONTACT PAGE ================= */
+
+    .contact-page {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        min-height: calc(100vh - 150px);
+        background: #f8f9fa;
+    }
+
+
+    /* ================= PAGE TITLE ================= */
+
+    .contact-title {
+        text-align: center;
+        margin-bottom: 55px;
+    }
+
+    .contact-title h1 {
+        font-size: 38px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .contact-title h1 span {
+        color: #d99b24;
+    }
+
+    .contact-title p {
+        color: #777;
+        margin: 0;
+    }
+
+
+    /* ================= CONTACT CARD ================= */
+
+    .contact-card {
+        background: white;
+        border-radius: 15px;
+        padding: 35px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+        height: 100%;
+    }
+
+    .contact-card h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+
+    /* ================= CONTACT INFO ================= */
+
+    .contact-info {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        min-width: 50px;
+        background: #fff3cd;
+        color: #d99b24;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 21px;
+        margin-right: 15px;
+    }
+
+    .contact-info h5 {
+        margin: 0 0 5px;
+        font-size: 17px;
+        font-weight: 600;
+    }
+
+    .contact-info p {
+        margin: 0;
+        color: #777;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+
+    /* ================= FORM ================= */
+
+    .form-label {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .form-control {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .form-control:focus {
+        border-color: #f4b942;
+        box-shadow: 0 0 0 0.2rem rgba(244, 185, 66, 0.15);
+    }
+
+    textarea.form-control {
+        min-height: 140px;
+        resize: vertical;
+    }
+
+
+    /* ================= BUTTON ================= */
+
+    .btn-main {
+        background: #f4b942;
+        border: none;
+        color: #111;
+        padding: 12px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-main:hover {
+        background: #d99b24;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+
+    /* ================= MAP / HOTEL INFO ================= */
+
+    .hotel-box {
+        margin-top: 25px;
+        background: #fff8e6;
+        border-left: 4px solid #f4b942;
+        padding: 18px;
+        border-radius: 8px;
+    }
+
+    .hotel-box p {
+        margin: 0;
+        color: #666;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 768px) {
+
+        .contact-page {
+            padding-top: 90px;
+            padding-bottom: 70px;
+        }
+
+        .contact-title h1 {
+            font-size: 30px;
+        }
+
+        .contact-card {
+            padding: 25px;
+        }
+
+    }
+
+</style>
+
+
+<!-- ================= CONTACT PAGE ================= -->
+
+<section class="contact-page">
+
+    <div class="container">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="contact-title">
+
+            <h1>
+                Contact <span>Us</span>
+            </h1>
+
+            <p>
+                Have a question? We would love to hear from you.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- ================= CONTACT INFORMATION ================= -->
+
+            <div class="col-lg-5">
+
+                <div class="contact-card">
+
+                    <h3>
+                        Get In Touch
+                    </h3>
+
+
+                    <div class="contact-info">
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Our Address
+                            </h5>
+
+                            <p>
+                                123 Hotel Street,<br>
+                                City Center, India
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Phone
+                            </h5>
+
+                            <p>
+                                +91 98765 43210
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <div class="contact-icon">
+                            ✉
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Email
+                            </h5>
+
+                            <p>
+                                info@yourhotel.com
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-info">
+
+                        <div class="contact-icon">
+                            ⏰
+                        </div>
+
+                        <div>
+
+                            <h5>
+                                Reception
+                            </h5>
+
+                            <p>
+                                Available 24 hours a day,
+                                7 days a week.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hotel-box">
+
+                        <p>
+                            Our team is always ready to help with room
+                            bookings, reservations, questions, and any
+                            special requests you may have.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= CONTACT FORM ================= -->
+
+            <div class="col-lg-7">
+
+                <div class="contact-card">
+
+                    <h3>
+                        Send Us a Message
+                    </h3>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+
+                        <div class="row g-3">
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Enter your name"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    class="form-control"
+                                    placeholder="Enter your email"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Subject
+                                </label>
+
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    class="form-control"
+                                    placeholder="Enter subject"
+                                    required>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <label class="form-label">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    name="message"
+                                    class="form-control"
+                                    placeholder="Write your message..."
+                                    required></textarea>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-main">
+
+                                    Send Message
+
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

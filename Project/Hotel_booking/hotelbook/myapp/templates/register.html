@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - StayEase</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f7f8fa;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            height: 70px;
+            background: #3d3d3d;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7.5%;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span {
+            color: #fbbd3f;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fbbd3f;
+        }
+
+        .login-btn {
+            background: #fbbd3f;
+            color: #111 !important;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold !important;
+        }
+
+        /* Registration Container */
+        .register-container {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 35px 20px;
+        }
+
+        .register-box {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Icon */
+        .icon {
+            width: 68px;
+            height: 68px;
+            background: #fff1cf;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 18px;
+            font-size: 30px;
+        }
+
+        .register-box h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+
+        .register-box h1 span {
+            color: #e99d09;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 28px;
+        }
+
+        /* Form */
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 9px;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #ddd;
+            border-radius: 9px;
+            padding: 0 15px;
+            font-size: 14px;
+            outline: none;
+            color: #444;
+        }
+
+        input:focus {
+            border-color: #fbbd3f;
+            box-shadow: 0 0 0 3px rgba(251, 189, 63, 0.12);
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        /* Terms */
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 5px 0 22px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .terms input {
+            width: 15px;
+            height: 15px;
+            accent-color: #fbbd3f;
+        }
+
+        .terms label {
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .terms a {
+            color: #e99d09;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Register Button */
+        .register-btn {
+            display: block;
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 9px;
+            background: #fbbd3f;
+            color: #111;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            padding-top: 16px;
+            text-decoration: none;
+        }
+
+        .register-btn:hover {
+            background: #f5b12d;
+        }
+
+        /* Login Link */
+        .login-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .login-text a {
+            color: #e99d09;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a:not(.login-btn) {
+                display: none;
+            }
+
+            .login-btn {
+                padding: 12px 20px;
+            }
+
+            .register-box {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .register-box h1 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            Stay<span>Ease</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="rooms.html">Rooms</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+
+
+    <!-- Registration -->
+    <div class="register-container">
+
+        <div class="register-box">
+
+            <div class="icon">🔐</div>
+
+            <h1>Create <span>Account</span></h1>
+
+            <p class="subtitle">
+                Create your StayEase account to manage<br>
+                your hotel bookings.
+            </p>
+
+            <span>{{err}}</span>
+            <form action="{%url 'register'%}" method="POST">
+                {%csrf_token%}
+
+                <!-- First Name and Last Name -->
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+
+                        <input
+                            type="text"
+                            id="firstName"
+                            name="firstname"
+                            placeholder="Enter your first name"
+                            required
+                        >
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+
+                        <input
+                            type="text"
+                            id="lastName"
+                            name="lastname"
+                            placeholder="Enter your last name"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- Username -->
+                <div class="form-group">
+
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Password -->
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmpassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Terms -->
+                <div class="terms">
+
+                    <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required
+                    >
+
+                    <label for="terms">
+                        I agree to the
+                        <a href="#">Terms & Conditions</a>
+                    </label>
+
+                </div>
+
+
+                <!-- Register Button -->
+                <button type="submit" class="register-btn">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <!-- Login -->
+            <div class="login-text">
+
+                Already have an account?
+                <a href="{%url 'login'%}">Login</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

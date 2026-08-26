@@ -1,0 +1,458 @@
+{%extends 'base.html'%}
+
+{%block title%}StayEase{%endblock%}
+
+{%block body%}
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <h1>
+                Find Your Perfect
+                <span>Stay</span>
+            </h1>
+
+            <p>
+                Discover comfortable rooms, beautiful hotels and
+                unforgettable experiences at the best prices.
+            </p>
+
+            <a href="#rooms" class="btn btn-main mt-3">
+                Explore Rooms
+            </a>
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <form method="GET" action="#">
+
+                    <div class="row g-3 align-items-end">
+
+                        <div class="col-lg-3 col-md-6">
+                            <label>Check In</label>
+                            <input
+                                type="date"
+                                name="check_in"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6">
+                            <label>Check Out</label>
+                            <input
+                                type="date"
+                                name="check_out"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6">
+                            <label>Guests</label>
+                            <select name="guests" class="form-select">
+                                <option>1 Guest</option>
+                                <option>2 Guests</option>
+                                <option>3 Guests</option>
+                                <option>4 Guests</option>
+                                <option>5+ Guests</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2 col-md-6">
+                            <label>Room</label>
+                            <select name="room_type" class="form-select">
+                                <option>Any Room</option>
+                                <option>Single</option>
+                                <option>Double</option>
+                                <option>Deluxe</option>
+                                <option>Suite</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-2">
+                            <button type="submit"
+                                    class="btn btn-main w-100">
+                                <i class="bi bi-search"></i>
+                                Search
+                            </button>
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ROOMS ================= -->
+
+<section class="section" id="rooms">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Popular Rooms</h2>
+
+            <p>
+                Choose from our comfortable and beautifully designed rooms.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Room 1 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="room-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80"
+                        alt="Deluxe Room">
+
+                    <div class="room-content">
+
+                        <div class="d-flex justify-content-between">
+
+                            <h4>Deluxe Room</h4>
+
+                            <div class="rating">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+                        <p class="text-muted">
+                            Spacious room with modern furniture,
+                            king-size bed and beautiful city view.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="price">
+                                ₹3,500
+                                <small>/ night</small>
+                            </div>
+
+                            <a href="#" class="btn btn-main">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Room 2 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="room-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+                        alt="Luxury Suite">
+
+                    <div class="room-content">
+
+                        <div class="d-flex justify-content-between">
+
+                            <h4>Luxury Suite</h4>
+
+                            <div class="rating">
+                                ★★★★★
+                            </div>
+
+                        </div>
+
+                        <p class="text-muted">
+                            Elegant suite with premium facilities,
+                            living area and luxurious interiors.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="price">
+                                ₹6,500
+                                <small>/ night</small>
+                            </div>
+
+                            <a href="#" class="btn btn-main">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Room 3 -->
+
+            <div class="col-lg-4 col-md-6">
+
+                <div class="room-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1000&q=80"
+                        alt="Executive Room">
+
+                    <div class="room-content">
+
+                        <div class="d-flex justify-content-between">
+
+                            <h4>Executive Room</h4>
+
+                            <div class="rating">
+                                ★★★★☆
+                            </div>
+
+                        </div>
+
+                        <p class="text-muted">
+                            Comfortable room designed for business
+                            travelers and short stays.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <div class="price">
+                                ₹4,500
+                                <small>/ night</small>
+                            </div>
+
+                            <a href="#" class="btn btn-main">
+                                Book Now
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="section bg-light">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Why Choose Us?</h2>
+
+            <p>
+                Everything you need for a comfortable stay.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-wifi"></i>
+                    </div>
+
+                    <h5>Free Wi-Fi</h5>
+
+                    <p>
+                        Stay connected with fast and reliable
+                        internet throughout the hotel.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-cup-hot"></i>
+                    </div>
+
+                    <h5>Breakfast</h5>
+
+                    <p>
+                        Enjoy delicious breakfast options
+                        every morning.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-car-front"></i>
+                    </div>
+
+                    <h5>Free Parking</h5>
+
+                    <p>
+                        Safe and convenient parking facilities
+                        for our guests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-3 col-md-6">
+
+                <div class="feature-box">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+
+                    <h5>24/7 Support</h5>
+
+                    <p>
+                        Our team is available around the clock
+                        to assist you.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img
+                    class="about-img"
+                    src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80"
+                    alt="Hotel">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <h2>
+                        Your Comfort Is
+                        <span style="color:#d99b24;">
+                            Our Priority
+                        </span>
+                    </h2>
+
+                    <p>
+                        Welcome to StayEase, where comfort meets
+                        exceptional hospitality. Our goal is to make
+                        every stay simple, relaxing and memorable.
+                    </p>
+
+                    <p>
+                        From beautifully designed rooms to friendly
+                        service and modern facilities, we provide
+                        everything you need for a perfect stay.
+                    </p>
+
+                    <a href="#" class="btn btn-main mt-3">
+                        Learn More
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="newsletter" id="contact">
+
+    <div class="container">
+
+        <h2>Get Special Offers</h2>
+
+        <p class="mt-3 mb-4">
+            Subscribe to receive exclusive hotel deals and offers.
+        </p>
+
+        <form class="row justify-content-center">
+
+            <div class="col-lg-5 col-md-7">
+
+                <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email address"
+                    required>
+
+            </div>
+
+            <div class="col-auto mt-2 mt-md-0">
+
+                <button class="btn btn-main">
+                    Subscribe
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+{%endblock%}

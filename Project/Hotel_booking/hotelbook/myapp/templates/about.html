@@ -1,0 +1,485 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body %}
+
+<style>
+
+    /* ================= ABOUT PAGE ================= */
+
+    .about-page {
+        padding-top: 100px;
+        padding-bottom: 100px;
+        min-height: calc(100vh - 150px);
+        background: #f8f9fa;
+    }
+
+
+    /* ================= ABOUT HERO ================= */
+
+    .about-hero {
+        text-align: center;
+        margin-bottom: 70px;
+    }
+
+    .about-hero h1 {
+        font-size: 38px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .about-hero h1 span {
+        color: #d99b24;
+    }
+
+    .about-hero p {
+        color: #777;
+        font-size: 16px;
+        max-width: 650px;
+        margin: auto;
+        line-height: 1.7;
+    }
+
+
+    /* ================= ABOUT CONTENT ================= */
+
+    .about-image {
+        width: 100%;
+        height: 430px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.10);
+    }
+
+    .about-content {
+        padding: 15px 10px 15px 35px;
+    }
+
+    .about-content h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 18px;
+    }
+
+    .about-content h2 span {
+        color: #d99b24;
+    }
+
+    .about-content p {
+        color: #777;
+        font-size: 15px;
+        line-height: 1.8;
+        margin-bottom: 15px;
+    }
+
+
+    /* ================= FEATURES ================= */
+
+    .features-section {
+        margin-top: 80px;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .section-title h2 span {
+        color: #d99b24;
+    }
+
+    .section-title p {
+        color: #777;
+        margin-top: 8px;
+    }
+
+
+    .feature-card {
+        background: white;
+        padding: 30px 22px;
+        text-align: center;
+        border-radius: 15px;
+        height: 100%;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
+        transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-7px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff3cd;
+        color: #d99b24;
+        border-radius: 50%;
+        font-size: 27px;
+    }
+
+    .feature-card h4 {
+        font-size: 19px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .feature-card p {
+        color: #777;
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+
+    /* ================= STATS ================= */
+
+    .stats-section {
+        margin-top: 80px;
+        background: white;
+        border-radius: 15px;
+        padding: 40px 20px;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .stat-box {
+        text-align: center;
+    }
+
+    .stat-box h3 {
+        color: #d99b24;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .stat-box p {
+        color: #777;
+        margin: 0;
+        font-size: 14px;
+    }
+
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 768px) {
+
+        .about-page {
+            padding-top: 90px;
+            padding-bottom: 70px;
+        }
+
+        .about-hero h1 {
+            font-size: 30px;
+        }
+
+        .about-image {
+            height: 300px;
+            margin-bottom: 25px;
+        }
+
+        .about-content {
+            padding: 10px 5px;
+        }
+
+        .about-content h2 {
+            font-size: 26px;
+        }
+
+        .features-section {
+            margin-top: 60px;
+        }
+
+        .stats-section {
+            margin-top: 60px;
+        }
+
+    }
+
+</style>
+
+
+<!-- ================= ABOUT PAGE ================= -->
+
+<section class="about-page">
+
+    <div class="container">
+
+
+        <!-- ================= PAGE TITLE ================= -->
+
+        <div class="about-hero">
+
+            <h1>
+                About <span>Our Hotel</span>
+            </h1>
+
+            <p>
+                Welcome to our hotel, where comfort, elegance, and warm
+                hospitality come together to create a memorable stay.
+            </p>
+
+        </div>
+
+
+        <!-- ================= ABOUT STORY ================= -->
+
+        <div class="row align-items-center g-5">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=80"
+                    alt="Our Hotel"
+                    class="about-image">
+
+            </div>
+
+
+            <!-- CONTENT -->
+
+            <div class="col-lg-6">
+
+                <div class="about-content">
+
+                    <h2>
+                        Your Comfort, <span>Our Priority</span>
+                    </h2>
+
+                    <p>
+                        Our hotel is designed to provide guests with a
+                        comfortable, relaxing, and enjoyable experience.
+                        From cozy rooms to elegant suites, every space is
+                        thoughtfully designed to make your stay special.
+                    </p>
+
+                    <p>
+                        Whether you are travelling for business, enjoying
+                        a family vacation, or looking for a peaceful
+                        getaway, we offer a range of rooms and services
+                        to meet your needs.
+                    </p>
+
+                    <p>
+                        With modern facilities, friendly service, and
+                        attention to detail, we strive to make every
+                        guest feel welcome and valued throughout their stay.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <div class="features-section">
+
+            <div class="section-title">
+
+                <h2>
+                    Why Choose <span>Us?</span>
+                </h2>
+
+                <p>
+                    Everything you need for a comfortable and memorable stay.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+                <!-- FEATURE 1 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ★
+                        </div>
+
+                        <h4>
+                            Quality Rooms
+                        </h4>
+
+                        <p>
+                            Enjoy beautifully designed rooms with modern
+                            facilities and comfortable furnishings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 2 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ♡
+                        </div>
+
+                        <h4>
+                            Warm Hospitality
+                        </h4>
+
+                        <p>
+                            Our friendly team is always ready to provide
+                            attentive and welcoming service.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 3 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            ✓
+                        </div>
+
+                        <h4>
+                            Best Service
+                        </h4>
+
+                        <p>
+                            We focus on delivering reliable service and
+                            making every guest experience enjoyable.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 4 -->
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="feature-card">
+
+                        <div class="feature-icon">
+                            $
+                        </div>
+
+                        <h4>
+                            Great Value
+                        </h4>
+
+                        <p>
+                            Experience excellent comfort and facilities
+                            at prices designed to provide great value.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= STATS ================= -->
+
+        <div class="stats-section">
+
+            <div class="row g-4">
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <h3>50+</h3>
+
+                        <p>
+                            Comfortable Rooms
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <h3>1000+</h3>
+
+                        <p>
+                            Happy Guests
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <h3>4.8</h3>
+
+                        <p>
+                            Guest Rating
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-6 col-lg-3">
+
+                    <div class="stat-box">
+
+                        <h3>24/7</h3>
+
+                        <p>
+                            Guest Support
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+{% endblock %}
