@@ -45,7 +45,7 @@ class CategoryAPIbyId(APIView):
             ser.save()
             return Response({"data":ser.data},status=status.HTTP_201_CREATED)
         else:
-            return Response({"erros":ser.errors},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"errors":ser.errors},status=status.HTTP_400_BAD_REQUEST)
 
 class ProductAPI(APIView):
     

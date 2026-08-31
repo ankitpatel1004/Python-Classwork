@@ -29,7 +29,7 @@
 
             <div class="search-box">
 
-                <form method="GET" action="#">
+                <form method="GET" action="{% url 'search_rooms' %}">
 
                     <div class="row g-3 align-items-end">
 
@@ -54,11 +54,12 @@
                         <div class="col-lg-2 col-md-6">
                             <label>Guests</label>
                             <select name="guests" class="form-select">
-                                <option>1 Guest</option>
-                                <option>2 Guests</option>
-                                <option>3 Guests</option>
-                                <option>4 Guests</option>
-                                <option>5+ Guests</option>
+                                <option value="1">1 Guest</option>
+                                <option value="2">2 Guests</option>
+                                <option value="3">3 Guests</option>
+                                <option value="4">4 Guests</option>
+                                <option value="5">5 Guests</option>
+                                <option value="6">6 Guests</option>
                             </select>
                         </div>
 
@@ -69,7 +70,9 @@
                                 <option>Single</option>
                                 <option>Double</option>
                                 <option>Deluxe</option>
+                                <option>Executive</option>
                                 <option>Suite</option>
+                                <option>Luxury</option>
                             </select>
                         </div>
 
@@ -142,7 +145,7 @@
                         <div class="d-flex justify-content-between align-items-center">
 
                             <div class="price">
-                                ₹3,500
+                                ₹2,500
                                 <small>/ night</small>
                             </div>
 
@@ -189,7 +192,7 @@
                         <div class="d-flex justify-content-between align-items-center">
 
                             <div class="price">
-                                ₹6,500
+                                ₹6,000
                                 <small>/ night</small>
                             </div>
 
@@ -236,7 +239,7 @@
                         <div class="d-flex justify-content-between align-items-center">
 
                             <div class="price">
-                                ₹4,500
+                                ₹3,000
                                 <small>/ night</small>
                             </div>
 

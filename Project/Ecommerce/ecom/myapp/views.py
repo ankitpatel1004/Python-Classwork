@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view,APIView,permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 import razorpay
+import random
 
 # Create your views here.
 
@@ -142,4 +143,37 @@ def payment(request):
     payment = client.order.create(data=data) # Amount is in currency subunits.
     print(payment)
     return Response(payment)   
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def confirmorder(request):
+    data = request.data
+    transaction_id = data.get('transaction_id')
+    payment_method = data.get('payment_method')
+    amount = data.get("amount")
+    
+    user = request.user
+    address = Address.objects.get(user=user,is_default=True)
+    carts = Cart.objects.get(user=user)
+    order_number = f"ORDER_{random.randint(0000,9999)}"
+    total_amount = carts.total_amount
+    
+    order = Order.objects.create(user=user,address=address,order_number=order_number,total_amount=total_amount)
+    
+    items = carts.items.all()
+    for i in items:  
+        stotal = i.product.price*i.quantity
+        OrderItem.objects.create(order=order,product=i.product,product_name=i.product.name,price=i.product.price,quantity=i.quantity,subtotal=stotal)
+    
+    carts.delete()
+    
+    Payment.objects.create(order=order,transaction_id=transaction_id,amount=amount,payment_method=payment_method)
+    
+    return Response("Success")
+
+@api_view(['GET'])
+def myorders(request):
+    orders = Order.objects.get(user=request.user)
+    ser = OrderSerializer(orders)
+    return Response({"orders":ser.data})
     

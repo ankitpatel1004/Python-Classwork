@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block body %}
+
+<style>
+
+    .search-results {
+        background-color: #f5f5f5;
+        min-height: 100vh;
+        padding: 50px 0;
+    }
+
+    .search-results h1 {
+        text-align: center;
+        margin-bottom: 35px;
+        color: #222;
+    }
+
+    .rooms {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .room {
+        background: white;
+        padding: 25px;
+        margin-bottom: 25px;
+        border-radius: 12px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .room h2 {
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .room p {
+        margin: 10px 0;
+    }
+
+    .price {
+        color: #f5b335;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .book-btn {
+        display: inline-block;
+        background-color: #f5b335;
+        color: black;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 7px;
+        margin-top: 10px;
+    }
+
+    .book-btn:hover {
+        background-color: #e5a21f;
+    }
+
+</style>
+
+<h1>Available Rooms</h1>
+
+<div class="rooms">
+
+    {% if rooms %}
+
+        {% for room in rooms %}
+
+            <div class="room">
+
+                <h2>{{ room.name }}</h2>
+
+                <p>Room Type: {{ room.room_type }}</p>
+
+                <p>Capacity: {{ room.capacity }} Guests</p>
+
+                <p>{{ room.description }}</p>
+
+                <p class="price">
+                    ₹{{ room.price }}
+                </p>
+
+                <p>
+                    Rating: ⭐ {{ room.rating }}
+                </p>
+
+                <a href="#" class="book-btn">
+                    Book Now
+                </a>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="room">
+            <h2>No Rooms Found</h2>
+            <p>
+                Sorry, no rooms are available for your search.
+            </p>
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

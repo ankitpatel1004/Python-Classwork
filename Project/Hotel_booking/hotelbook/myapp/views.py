@@ -8,9 +8,6 @@ from django.contrib.auth import authenticate,login as auth_login, logout as auth
 def home(request):
     return render(request,"home.html")
 
-def hotel(request):
-    return render(request,"hotel_search.html")
-
 def rooms(request):
     rooms = Room.objects.filter(available=True)
     return render(request,'rooms.html',{'rooms': rooms})
@@ -60,3 +57,18 @@ def register(request):
 def logout(request):
     auth_logout(request)
     return redirect("home")
+
+def search_rooms(request):
+    guests = request.GET.get('guests')
+    room_type = request.GET.get('room_type')
+    rooms = Room.objects.filter(available=True)
+
+    # Filter by number of guests
+    if guests:
+        rooms = rooms.filter(capacity__gte=guests)
+
+    # Filter by room type
+    if room_type and room_type != "Any Room":
+        rooms = rooms.filter(room_type=room_type)
+
+    return render(request, 'search_results.html', {'rooms': rooms})
