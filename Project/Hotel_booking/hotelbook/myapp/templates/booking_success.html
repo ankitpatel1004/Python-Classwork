@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking Success{% endblock %}
+
+{% block body %}
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .success-box {
+            width: 500px;
+            margin: 100px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #e5a21a;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #f5b83d;
+            color: black;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="success-box">
+
+    <h1>🎉 Booking Successful!</h1>
+
+    <p>
+        Your room has been booked successfully.
+    </p>
+
+    <p>
+        Thank you for choosing StayEase.
+    </p>
+
+    <a href="{% url 'rooms' %}">
+        Back to Rooms
+    </a>
+
+</div>
+
+
+{% endblock %}

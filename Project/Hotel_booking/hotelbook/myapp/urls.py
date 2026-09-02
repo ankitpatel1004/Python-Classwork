@@ -9,5 +9,8 @@ urlpatterns = [
     path("login",login,name="login"),
     path("register",register,name="register"),
     path("logout",logout,name="logout"),
-    path("search/",search_rooms,name="search_rooms")
+    path("search/",search_rooms,name="search_rooms"),
+    path("book/<int:room_id>/", booking, name="booking"),
+    path("payment-success/",payment_success,name="payment_success"),
+    path("booking-success/",booking_success,name="booking_success")
 ]

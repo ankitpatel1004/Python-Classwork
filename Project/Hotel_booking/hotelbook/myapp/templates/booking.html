@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}Booking{% endblock %}
+
+{% block body %}
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .booking-container {
+            width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #222;
+        }
+
+        .room-name {
+            text-align: center;
+            color: #e5a21a;
+        }
+
+        .price {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            color: #e5a21a;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 14px;
+            background: #f5b83d;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e5a21a;
+        }
+
+        .error {
+            background: #ffe5e5;
+            color: red;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="booking-container">
+
+    <h1>Book Your Room</h1>
+
+    <h2 class="room-name">
+        {{ room.name }}
+    </h2>
+
+    <p class="price">
+        ₹{{ room.price }} / night
+    </p>
+
+    {% if err %}
+        <div class="error">
+            {{ err }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label>Check In</label>
+
+        <input
+            type="date"
+            name="check_in"
+            required
+        >
+
+
+        <label>Check Out</label>
+
+        <input
+            type="date"
+            name="check_out"
+            required
+        >
+
+
+        <label>Number of Guests</label>
+
+        <input
+            type="number"
+            name="guests"
+            min="1"
+            max="{{ room.capacity }}"
+            value="1"
+            required
+        >
+
+        <p>
+            Maximum guests: {{ room.capacity }}
+        </p>
+
+
+        <button type="submit">
+            Confirm Booking
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

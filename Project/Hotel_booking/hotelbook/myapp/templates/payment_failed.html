@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Failed{% endblock %}
+
+{% block body %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h1 class="text-danger">
+                Payment Failed
+            </h1>
+
+            <p class="text-muted mt-3">
+                We could not verify your payment.
+            </p>
+
+            {% if error %}
+
+                <p>
+                    {{ error }}
+                </p>
+
+            {% endif %}
+
+            <a
+                href="{% url 'rooms' %}"
+                class="btn btn-warning mt-3">
+
+                Back to Rooms
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment{% endblock %}
+
+{% block body %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-7">
+
+                <div class="card border-0 shadow rounded-4">
+
+                    <div class="card-body p-5 text-center">
+
+                        <h2 class="mb-4">
+                            Complete Your Payment
+                        </h2>
+
+                        <h4>
+                            {{ room.name }}
+                        </h4>
+
+                        <p class="text-muted">
+                            {{ booking.check_in }}
+                            →
+                            {{ booking.check_out }}
+                        </p>
+
+                        <p>
+                            Guests:
+                            <strong>
+                                {{ booking.guests }}
+                            </strong>
+                        </p>
+
+                        <hr>
+
+                        <h2 class="mb-4">
+                            ₹{{ booking.total_price }}
+                        </h2>
+
+                        <button
+                            id="pay-btn"
+                            class="btn btn-warning btn-lg px-5">
+
+                            Pay Now
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<script>
+
+    var options = {
+
+        key: "{{ razorpay_key }}",
+
+        amount: "{{ amount }}",
+
+        currency: "INR",
+
+        name: "StayEase",
+
+        description: "Hotel Room Booking",
+
+        order_id: "{{ razorpay_order_id }}",
+
+        handler: function (response) {
+
+            var form = document.createElement("form");
+
+            form.method = "POST";
+
+            form.action =
+                "{% url 'payment_success' %}";
+
+
+            var csrf =
+                document.createElement("input");
+
+            csrf.type = "hidden";
+
+            csrf.name =
+                "csrfmiddlewaretoken";
+
+            csrf.value =
+                "{{ csrf_token }}";
+
+            form.appendChild(csrf);
+
+
+            var paymentId =
+                document.createElement("input");
+
+            paymentId.type = "hidden";
+
+            paymentId.name =
+                "razorpay_payment_id";
+
+            paymentId.value =
+                response.razorpay_payment_id;
+
+            form.appendChild(paymentId);
+
+
+            var orderId =
+                document.createElement("input");
+
+            orderId.type = "hidden";
+
+            orderId.name =
+                "razorpay_order_id";
+
+            orderId.value =
+                response.razorpay_order_id;
+
+            form.appendChild(orderId);
+
+
+            var signature =
+                document.createElement("input");
+
+            signature.type = "hidden";
+
+            signature.name =
+                "razorpay_signature";
+
+            signature.value =
+                response.razorpay_signature;
+
+            form.appendChild(signature);
+
+
+            document.body.appendChild(form);
+
+            form.submit();
+
+        }
+
+    };
+
+
+    var razorpay =
+        new Razorpay(options);
+
+
+    document.getElementById("pay-btn")
+        .onclick = function(e) {
+
+            razorpay.open();
+
+            e.preventDefault();
+
+        };
+
+</script>
+
+{% endblock %}
