@@ -8,6 +8,7 @@ from django.db.models import Q
 import razorpay
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -345,3 +346,27 @@ def payment_success(request):
 
 def booking_success(request):
     return render(request,"booking_success.html")
+    
+def email(request):
+    if request.method == "POST":
+
+        name = request.POST.get("name")
+        to = request.POST.get("email")
+        subject = request.POST.get("subject")
+        message = request.POST.get("message")
+
+        send_mail(
+            subject=subject,
+            message=f"""
+                    Name: {name}
+                    Email: {to}
+                    Message: {message}
+                """,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            recipient_list=[settings.DEFAULT_FROM_EMAIL],
+            fail_silently=False,
+        )
+
+        return render(request,"contact.html",{"msg": "Email sent successfully!"})
+
+    return render(request, "contact.html")

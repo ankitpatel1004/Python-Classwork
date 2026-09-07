@@ -36,7 +36,7 @@ class CategoryAPIbyId(APIView):
             category.delete()
             return Response({"message":"category delete"},status=status.HTTP_204_NO_CONTENT)
         except Exception as e:
-             return Response({"message":"category not found"},status=status.HTTP_400_BAD_REQUEST)
+            return Response({"message":"category not found"},status=status.HTTP_400_BAD_REQUEST)
         
     def put(self,request,id):
         category = Category.objects.get(id=id)
@@ -67,7 +67,7 @@ class ProductAPIbyID(APIView):
     def get(self,request,id):
         product = Product.objects.get(id=id)
         ser = ProductSerializer(product)
-        return Response({"dat":ser.data},status=status.HTTP_200_OK)
+        return Response({"data":ser.data},status=status.HTTP_200_OK)
 
     def put(self,request,id):
         product = Product.objects.get(id=id)

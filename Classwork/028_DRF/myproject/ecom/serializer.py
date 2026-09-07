@@ -9,11 +9,11 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-            model=Product
-            fields='__all__'
-            # fields=['id','name']
-            # exclude=['name']
-            # depth = 1
+        model=Product
+        fields='__all__'
+        # fields=['id','name']
+        # exclude=['name']
+        # depth = 1
 
     def validate(self, attrs):
         if attrs['qty']<1:

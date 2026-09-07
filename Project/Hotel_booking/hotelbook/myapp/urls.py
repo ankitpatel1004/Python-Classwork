@@ -12,5 +12,6 @@ urlpatterns = [
     path("search/",search_rooms,name="search_rooms"),
     path("book/<int:room_id>/", booking, name="booking"),
     path("payment-success/",payment_success,name="payment_success"),
-    path("booking-success/",booking_success,name="booking_success")
+    path("booking-success/",booking_success,name="booking_success"),
+    path("email",email,name="email")
 ]

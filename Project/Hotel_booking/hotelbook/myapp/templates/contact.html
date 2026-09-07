@@ -323,9 +323,9 @@
                     <h3>
                         Send Us a Message
                     </h3>
-
-
-                    <form method="POST">
+                    
+                    <span>{{msg}}</span>
+                    <form method="POST" action="{%url 'email'%}">
 
                         {% csrf_token %}
 
