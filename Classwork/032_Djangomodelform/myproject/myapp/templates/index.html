@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <input type="Submit">
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th colspan="2">Action</th>
+        </tr>
+
+        {%for std in students%}
+        <tr>
+            <td>{{std.id}}</td>
+            <td>{{std.name}}</td>
+            <td>{{std.email}}</td>
+            <td>{{std.age}}</td>
+            <td><a href="{%url 'delete'%}?id={{std.id}}">Delete</a></td>
+            <td><a href="{%url 'update'%}?id={{std.id}}">Update</a></td>
+        </tr>
+        {%endfor%}
+        
+    </table>
+</body>
+</html>
